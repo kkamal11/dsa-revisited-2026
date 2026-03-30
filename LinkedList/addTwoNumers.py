@@ -73,3 +73,27 @@ class Solution:
             node = ListNode(prev_carry)
             curr.next = node
         return result
+
+    def addTwoNumbersOptimized(
+        self, l1: Optional[ListNode], l2: Optional[ListNode]
+    ) -> Optional[ListNode]:
+        result = ListNode()
+        temp = result
+        carry = 0
+        while l1 or l2 or carry:
+            sum_ = 0
+            if l1:
+                sum_ += l1.val
+                l1 = l1.next
+            if l2:
+                sum_ += l2.val
+                l2 = l2.next
+
+            if carry:
+                sum_ += carry
+
+            addition = sum_ % 10
+            carry = sum_ // 10
+            temp.next = ListNode(addition)
+            temp = temp.next
+        return result.next
