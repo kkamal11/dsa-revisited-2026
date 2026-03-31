@@ -25,7 +25,8 @@ def nth_root(num, n):
             lo = mid
         else:
             hi = mid
-    return ans
+    print(f"{hi=} {lo=} {mid=}")
+    return hi
 
 
 num = 25
