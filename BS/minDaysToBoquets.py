@@ -21,6 +21,9 @@ def minDays(bloomDay, m, k):
 
 
 def minDaysBinary(bloomDay, m, k):
+    n = len(bloomDay)
+    if n < m * k:
+        return -1
     lo = min(bloomDay)
     hi = max(bloomDay) + 1
     can_make = False
