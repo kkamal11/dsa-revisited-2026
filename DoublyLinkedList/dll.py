@@ -29,6 +29,19 @@ class DoublyLinkedList:
         tmp.next = new_node
         new_node.prev = tmp
 
+    def insert_before_tails(self, val):
+        if self.head is None or self.head.next is None:
+            self.insert_front(val)
+        else:
+            tmp = self.head
+            while tmp.next:
+                tmp = tmp.next
+            new_node = Node(val)
+            tmp.prev.next = new_node
+            new_node.prev = tmp.prev
+            new_node.next = tmp
+            tmp.prev = new_node
+
     def delete(self, val):
         tmp = self.head
         # Head deletion
@@ -87,6 +100,7 @@ def main():
     dll.insert_front(5)
     dll.insert_end(25)
     dll.insert_end(35)
+    dll.insert_before_tails(55)
     print("Forward:", dll.display_forward())
     print("Backward:", dll.display_backward())
 
