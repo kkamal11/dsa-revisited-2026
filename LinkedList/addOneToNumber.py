@@ -9,7 +9,7 @@ class ListNode:
         while tmp:
             L.append(tmp.val)
             tmp = tmp.next
-        return "".join(str(n) for n in L)
+        return " -> ".join(str(n) for n in L)
 
 
 class Solution:
