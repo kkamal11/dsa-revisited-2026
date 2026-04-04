@@ -40,11 +40,14 @@ class ExpressionConverter:
 
         return "".join(ans)
 
+    def infix_to_prefix(self, exp: str):
+        pass
+
 
 conv = ExpressionConverter()
 exp1 = " a + b * (c^d - e) ^ (f + g * h) - i "
 exp2 = " (p + q) * (m - n)"
-exp3 = "a + b * (c ^ d - e)"
+exp3 = "a + b * (c ^ d - e) / a"
 print(conv.infix_to_postfix(exp1))
 print(conv.infix_to_postfix(exp2))
 print(conv.infix_to_postfix(exp3))
