@@ -38,11 +38,7 @@ class Solution:
 
             stack.append(num)
 
-        ans = []
-        for num in nums1:
-            ans.append(next_greater[num])
-
-        return ans
+        return [next_greater[num] for num in nums1]
 
 
 sol = Solution()
