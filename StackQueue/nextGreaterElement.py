@@ -40,25 +40,41 @@ class Solution:
 
         return [next_greater[num] for num in nums1]
 
-    def nextGreaterElementII(self, nums: List[int]) -> List[int]:
-        stack = []
-        next_greater = {}
-
+    def nextGreaterElementsII(self, nums: List[int]) -> List[int]:
         n = len(nums)
-        for idx in range(2 * n - 1, -1, -1):
-            num = nums[idx % n]
+        stack = []
+        res = [-1] * n
+
+        for i in range(2 * n - 1, -1, -1):
+            num = nums[i % n]
 
             while stack and stack[-1] <= num:
                 stack.pop()
 
-            if stack == []:
-                next_greater[num] = -1
-            else:
-                next_greater[num] = stack[-1]
+            if i < n:
+                if stack:
+                    res[i] = stack[-1]
+                else:
+                    res[i] = -1
 
             stack.append(num)
 
-        return [next_greater[num] for num in nums]
+        return res
+
+    def nextSmallerElements(self, nums: List[int]) -> List[int]:
+        smaller = {}
+        n = len(nums)
+        stack = []
+
+        for i in range(n - 1, -1, -1):
+
+            while stack and stack[-1] >= nums[i]:
+                stack.pop()
+            smaller[nums[i]] = stack[-1] if stack else -1
+
+            stack.append(nums[i])
+
+        return [smaller[num] for num in nums]
 
 
 sol = Solution()
@@ -68,3 +84,6 @@ n1 = [1, 2, 4]
 n2 = [1, 2, 3, 4]
 print(sol.nextGreaterElement(n1, n2))
 print(sol.nextGreaterElementOptimized(n1, n2))
+
+arr = [4, 8, 5, 2, 25]
+print(sol.nextSmallerElements(arr))
