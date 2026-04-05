@@ -14,7 +14,7 @@ class Solution:
                 min_ = min(min_, arr[j])
                 sum_ += min_ % self.MOD
 
-        return sum_
+        return sum_ % self.MOD
 
     def sumSubarrayMinsOptimized(self, arr: List[int]) -> int:
         pass
