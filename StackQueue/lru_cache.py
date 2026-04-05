@@ -1,4 +1,3 @@
-# Class representing the LRU Cache
 class LRUCache:
     class Node:
         def __init__(self, _key, _val):
