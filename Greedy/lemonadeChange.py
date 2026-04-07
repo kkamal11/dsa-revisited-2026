@@ -27,3 +27,5 @@ class Solution:
 sol = Solution()
 bills = [5,5,10,10,20]
 print(sol.lemonadeChange(bills))
+bills = [5,5,5,10,5,5,10,20,20,20]
+print(sol.lemonadeChange(bills))
