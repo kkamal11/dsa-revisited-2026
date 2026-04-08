@@ -49,5 +49,5 @@ sol = Solution()
 nums = [2,3,4,1,0,1]
 print(sol.jump(nums))
 
-# nums = [2,3,0,1,4]
-# print(sol.jump(nums))
+nums = [2,3,0,1,0,1]
+print(sol.jump2(nums))
