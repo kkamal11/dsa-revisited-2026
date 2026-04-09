@@ -16,7 +16,7 @@ class KthElementInArr:
                 heapq.heappop(heap)
         return heap
 
-    def kth_smallest_element(self):
+    def kth_smallest_element(self): # n log k
         heap = []
         for num in self.arr:
             heapq.heappush(heap, -num)
