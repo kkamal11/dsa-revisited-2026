@@ -7,6 +7,8 @@ class KthElementInArr:
         self.n = len(self.arr)
     
     def kth_largest_element(self):
+        if self.k > self.n:
+            return -1
         heap = []
         for num in self.arr:
             heapq.heappush(heap, num)
