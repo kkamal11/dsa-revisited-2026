@@ -44,6 +44,20 @@ class Tree:
         self.postorder(root.left)
         self.postorder(root.right)
         print(root.val, end=" ")
+    
+
+    def inorderTraversal(self, root):
+        result = []
+        
+        def inorder(root):
+            if root is None:
+                return
+            inorder(root.left)
+            result.append(root.val)
+            inorder(root.right)
+
+        inorder(root)
+        return result
 
 root = Node(1)
 left = Node(2)
