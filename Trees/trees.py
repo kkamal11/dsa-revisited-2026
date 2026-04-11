@@ -103,6 +103,27 @@ class Tree:
 
         return result
 
+    def preorderTraversal(self, root):
+        result = []
+        stack = []
+        current = root
+
+        while current is not None or stack:
+
+            result.append(current.val)
+
+            if current.right:
+                stack.append(current.right)
+            if current.left:
+                current = current.left
+            else:
+                if stack:
+                    current = stack.pop()
+                else:
+                    current = None
+                    
+        return result
+
 root = Node(1)
 left = Node(2)
 right =Node(3)
