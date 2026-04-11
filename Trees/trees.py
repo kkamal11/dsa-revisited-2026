@@ -1,3 +1,5 @@
+from collections import deque
+
 class Node:
     def __init__(self, val = None):
         self.val = val
@@ -57,6 +59,48 @@ class Tree:
             inorder(root.right)
 
         inorder(root)
+        return result
+    
+
+    def inorderIterative(self, root):
+        result = []
+        stack = []
+        current = root
+
+        while current is not None or stack:
+            while current is not None:
+                stack.append(current)
+                current = current.left
+            
+            current = stack.pop()
+            result.append(current.val)
+            current = current.right
+        
+        return result
+    
+    def levelOrder(self, root):
+        q = deque()
+        result = []
+
+        if root is None:
+            return result
+
+        q.append(root)
+
+        while q:
+            level = len(q)
+            sub_list = []
+            for i in range(level):
+                r = q.popleft()
+                if r.left:
+                    q.append(r.left)
+                if r.right:
+                    q.append(r.right)
+                
+                sub_list.append(r.val)
+            
+            result.append(sub_list)
+
         return result
 
 root = Node(1)
