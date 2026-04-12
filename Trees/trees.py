@@ -88,9 +88,9 @@ class Tree:
         q.append(root)
 
         while q:
-            level = len(q)
+            level_size = len(q)
             sub_list = []
-            for i in range(level):
+            for i in range(level_size):
                 r = q.popleft()
                 if r.left:
                     q.append(r.left)
