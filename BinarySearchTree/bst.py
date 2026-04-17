@@ -34,13 +34,13 @@ class BinarySearchTree:
         return None
     
     def searchMaxInBST(self, root):
-        max_ = float('-inf')
-
-        while root:
-            max_ = max(max_, root.val)
-            root = root.right
+        if not root:
+            return None
         
-        return max_
+        while root.right:
+            root = root.right
+            
+        return root.val
 
     def searchMinInBST(self, root):
         min_ = float('inf')
