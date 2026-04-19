@@ -4,7 +4,6 @@ class TrieNode:
         self.isEnd = False
 
 
-
 class Trie:
 
     def __init__(self):
@@ -33,7 +32,7 @@ class Trie:
                 return False
             node = node.children[ch]
         return True
-    
+
 
 obj = Trie()
 obj.insert("word")
