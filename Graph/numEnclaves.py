@@ -57,7 +57,12 @@ class Solution:
             dfs(grid, r, c + 1)
             dfs(grid, r, c - 1)
 
-        dfs(grid, 0, 0)
+        for i in range(rows):
+            for j in range(cols):
+                if grid[i][j] == 1 and (
+                    i == 0 or i == rows - 1 or j == 0 or j == cols - 1
+                ):
+                    dfs(grid, i, j)
 
         count = 0
         for i in range(rows):
@@ -70,5 +75,5 @@ class Solution:
 
 sol = Solution()
 grid = [[0, 0, 0, 0], [1, 0, 1, 0], [0, 1, 1, 0], [0, 0, 0, 0]]
-print(sol.numEnclaves(grid))
+# print(sol.numEnclaves(grid))
 print(sol.numEnclavesDFS(grid))
