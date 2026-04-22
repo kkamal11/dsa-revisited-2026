@@ -39,6 +39,34 @@ class Solution:
 
         return count
 
+    def numEnclavesDFS(self, grid: List[List[int]]) -> int:
+        rows = len(grid)
+        cols = len(grid[0])
+
+        def dfs(grid, r, c):
+            if r < 0 or r >= rows or c < 0 or c >= cols:
+                return
+
+            if grid[r][c] != 1:
+                return
+
+            grid[r][c] = -1
+
+            dfs(grid, r + 1, c)
+            dfs(grid, r - 1, c)
+            dfs(grid, r, c + 1)
+            dfs(grid, r, c - 1)
+
+        dfs(grid, 0, 0)
+
+        count = 0
+        for i in range(rows):
+            for j in range(cols):
+                if grid[i][j] == 1:
+                    count += 1
+
+        return count
+
 
 sol = Solution()
 grid = [[0, 0, 0, 0], [1, 0, 1, 0], [0, 1, 1, 0], [0, 0, 0, 0]]
