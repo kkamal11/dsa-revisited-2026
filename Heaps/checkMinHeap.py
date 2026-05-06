@@ -1,20 +1,20 @@
 class MinHeap:
     def __init__(self, arr):
         self.arr = arr
-    
+
     def parent_idx(self, ind):
         return (ind - 1) // 2
-    
+
     def left_child_idx(self, ind):
-        return 2*ind + 1
-    
+        return 2 * ind + 1
+
     def right_child_idx(self, ind):
-        return 2*ind + 2
-    
+        return 2 * ind + 2
+
     def check_valid_min_heap(self):
         i = 0
         n = len(self.arr)
-        while i < n//2:
+        while i < n // 2:
             node_value = self.arr[i]
 
             li = self.left_child_idx(i)
@@ -25,15 +25,15 @@ class MinHeap:
 
             if li < n and node_value > self.arr[li]:
                 return False
-             
+
             i += 1
 
         return True
-    
+
     def check_valid_max_heap(self):
         i = 0
         n = len(self.arr)
-        for i in range(n//2):
+        for i in range(n // 2):
             node_value = self.arr[i]
 
             li = self.left_child_idx(i)
@@ -44,9 +44,9 @@ class MinHeap:
 
             if li < n and node_value < self.arr[li]:
                 return False
-             
+
         return True
-    
+
     def __str__(self):
         return str(self.arr)
 
@@ -63,4 +63,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
