@@ -1,10 +1,25 @@
 from typing import List
 
+
+"""
+Problem Description:
+You are given an integer array coins representing coins of different 
+denominations and an integer amount representing a total amount of money.
+Return the fewest number of coins that you need to make up that 
+amount. If that amount of money cannot be made up by any combination 
+of the coins, return -1.
+Example 1:
+Input: coins = [1,2,5], amount = 11
+Output: 3
+Explanation: 11 = 5 + 5 + 1
+"""
+
+
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
         if amount == 0:
             return 0
-        
+
         coins.sort()
 
         total_coins = 0
@@ -18,12 +33,11 @@ class Solution:
         return total_coins if amount == 0 else -1
 
 
-
-sol  =Solution()
-coins = [1,3,4]
+sol = Solution()
+coins = [1, 3, 4]
 amount = 6
 print(sol.coinChange(coins, amount))
 
-coins = [186,419,83,408] # [83, 186, 408, 419] a= 16
+coins = [186, 419, 83, 408]  # [83, 186, 408, 419] a= 16
 amount = 6249
 print(sol.coinChange(coins, amount))

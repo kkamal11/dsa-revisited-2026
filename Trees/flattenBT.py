@@ -1,0 +1,49 @@
+from typing import Optional
+
+# Definition for a binary tree node.
+
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+class Solution:
+
+    def flatten(self, root: Optional[TreeNode]) -> TreeNode:
+        dummy = TreeNode(-1, None, None)
+        tail = dummy
+
+        def preorder(root):
+            nonlocal tail
+            if root is None:
+                return
+            tail.right = TreeNode(root.val)
+            tail = tail.right
+            preorder(root.left)
+            preorder(root.right)
+
+        preorder(root)
+        return dummy.right
+
+    def flatten2(self, root: Optional[TreeNode]) -> None:
+        """
+        Do not return anything, modify root in-place instead.
+        """
+        prev = None
+
+        def dfs(node):
+            nonlocal prev
+            if not node:
+                return
+
+            dfs(node.right)
+            dfs(node.left)
+
+            node.right = prev
+            node.left = None
+            prev = node
+
+        dfs(root)
