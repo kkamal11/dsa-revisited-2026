@@ -5,6 +5,7 @@ class Solution:
     def rotate(self, matrix: List[List[int]]) -> None:
         """
         Do not return anything, modify matrix in-place instead.
+        Given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
         """
         row = len(matrix)
         col = len(matrix[0])
