@@ -2,6 +2,8 @@ from typing import List
 
 
 class Solution:
+    is_palindrome = lambda self, word: word == word[::-1]
+
     def is_palindrome(self, word):
         # return word == word[::-1]
         n = len(word)
