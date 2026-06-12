@@ -5,6 +5,16 @@ Example 1:
 Input: s = "abccccdd"
 Output: 7
 Explanation: One longest palindrome that can be built is "dccaccd", whose length is
+
+
+
+Key Observation
+
+A palindrome can use:
+
+All characters with even frequency
+For characters with odd frequency, we can use frequency - 1 (making it even)
+If there is at least one odd frequency, we can place one character in the center
 """
 
 
