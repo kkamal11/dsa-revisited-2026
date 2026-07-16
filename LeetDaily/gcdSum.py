@@ -3,6 +3,7 @@ from typing import List
 
 class Solution:
     def gcd(self, a: int, b: int) -> int:
+        """Time complexity is O(log(min(a, b)))"""
         while b != 0:
             a, b = b, a % b
         return a
