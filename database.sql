@@ -3,7 +3,7 @@ SELECT ROUND(SUM(tiv_2016)::NUMERIC, 2) AS tiv_2016
 FROM Insurance i
 WHERE i.tiv_2015 IN (SELECT ii.tiv_2015 FROM Insurance ii WHERE i.pid<>ii.pid)
 AND (i.lat, i.lon) NOT IN (SELECT ii.lat, ii.lon FROM Insurance ii WHERE i.pid<>ii.pid);
-
+--O(N^2)
 
 SELECT ROUND(SUM(tiv_2016)::numeric, 2) AS tiv_2016
 FROM Insurance
@@ -19,6 +19,7 @@ AND (lat, lon) IN (
     GROUP BY lat, lon
     HAVING COUNT(*) = 1
 );
+--O(nlogn)
 
 
 SELECT ROUND(SUM(tiv_2016)::numeric, 2) AS tiv_2016
@@ -30,3 +31,4 @@ FROM (
 ) t
 WHERE tiv_cnt > 1
   AND loc_cnt = 1;
+--O(n)
