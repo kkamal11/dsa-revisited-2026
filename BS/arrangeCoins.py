@@ -1,5 +1,5 @@
 class Solution:
-    def arrangeCoins(self, n: int) -> int:
+    def arrangeCoins1(self, n: int) -> int:
         coins = 0
         rows = 0
 
@@ -8,3 +8,22 @@ class Solution:
             coins += rows
 
         return rows - 1 if coins != n else rows
+
+    def arrangeCoins(self, n: int) -> int:
+        lo = 0
+        hi = n
+
+        while lo < hi:
+            mid = (lo + hi) // 2
+            coins = mid * (mid + 1) / 2
+            if coins <= n:
+                lo = mid
+            if coins > n:
+                hi = mid - 1
+
+        return lo
+
+
+sol = Solution()
+n = 6
+print(sol.arrangeCoins1(n), sol.arrangeCoins(n))
