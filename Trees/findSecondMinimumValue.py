@@ -15,7 +15,7 @@ class Solution:
         if not root:
             return -1
 
-        sec_min = -1
+        sec_min = float("inf")
         mini = float("inf")
         q = deque([root])
 
