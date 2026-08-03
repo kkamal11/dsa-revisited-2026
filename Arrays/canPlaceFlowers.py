@@ -5,9 +5,6 @@ class Solution:
     def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
         m = len(flowerbed)
 
-        if n == 0:
-            return True
-
         if m == 1:
             if n > 1:
                 return False
@@ -30,7 +27,7 @@ class Solution:
             if n == 0:
                 return True
 
-        return n == 0
+        return n <= 0
 
     def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
         m = len(flowerbed)
