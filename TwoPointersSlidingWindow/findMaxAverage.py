@@ -36,6 +36,24 @@ class Solution:
 
         return max_avg
 
+    def findMaxAverage3(self, nums: List[int], k: int) -> float:
+        window_sum = 0
+        max_avg = float("-inf")
+
+        i, j, n = 0, 0, len(nums)
+
+        while j < n:
+            window_sum += nums[j]
+
+            if (j - i + 1) == k:
+                max_avg = max(max_avg, window_sum / k)
+                window_sum -= nums[i]
+                i += 1
+
+            j += 1
+
+        return max_avg
+
 
 sol = Solution()
 nums = [1, 12, -5, -6, 50, 3]
