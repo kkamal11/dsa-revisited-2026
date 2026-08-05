@@ -47,3 +47,17 @@ class Solution:
             return 9
         else:
             return num % 9
+
+    def addDigitsRecusive(self, num: int) -> int:
+
+        if num < 10:
+            return num
+        else:
+            n = sum(int(digit) for digit in str(num))
+            return self.addDigitsRecusive(n)
+
+
+n = 38
+sol = Solution()
+print(sol.addDigits(n))
+print(sol.addDigitsRecusive(n))
