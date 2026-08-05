@@ -25,3 +25,25 @@ class Solution:
                 ans = 0
 
         return ans
+
+    def addDigits2(self, num: int) -> int:
+        """
+        Explanation:
+        The digital root of a non-negative integer is the single digit value
+        obtained by an iterative process of summing digits, on each iteration
+        using the result from the previous iteration to compute a digit sum.
+        The process continues until a single-digit number is reached.
+
+        The digital root can be computed using the formula:
+        digital_root(n) = 1 + (n - 1) % 9, where n is a non-negative integer.
+        This can be simplified to:
+        - If n == 0, then digital_root(n) = 0
+        - If n % 9 == 0, then digital_root(n) = 9
+        - Otherwise, digital_root(n) = n % 9
+        """
+        if num == 0:
+            return 0
+        elif num % 9 == 0:
+            return 9
+        else:
+            return num % 9
