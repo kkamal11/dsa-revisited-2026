@@ -49,7 +49,7 @@ class Solution:
             return num % 9
 
     def addDigitsRecusive(self, num: int) -> int:
-
+        # complexity: O(log n)
         if num < 10:
             return num
         else:
