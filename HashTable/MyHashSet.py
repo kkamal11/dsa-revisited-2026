@@ -25,3 +25,30 @@ class MyHashSet:
 # obj.add(key)
 # obj.remove(key)
 # param_3 = obj.contains(key)
+
+
+class MyHashSet:
+    """
+    Here is a simple implementation of a hash set using separate chaining for collision resolution.
+    The hash set supports three main operations: add, remove, and contains.
+    """
+
+    def __init__(self):
+        self.size = 1000
+        self.table = [[] for _ in range(self.size)]
+
+    def _hash(self, key):
+        return key % self.size
+
+    def add(self, key):
+        bucket = self.table[self._hash(key)]
+        if key not in bucket:
+            bucket.append(key)
+
+    def remove(self, key):
+        bucket = self.table[self._hash(key)]
+        if key in bucket:
+            bucket.remove(key)
+
+    def contains(self, key):
+        return key in self.table[self._hash(key)]
