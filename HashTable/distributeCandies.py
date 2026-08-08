@@ -35,3 +35,17 @@ class Solution:
             map_types[ty] += 1
 
         return type_count
+
+    def distributeCandies(self, candyType: List[int]) -> int:
+        candy_type_set = set()
+        n = len(candyType) // 2
+        type_count = 0
+
+        for ty in candyType:
+            if ty not in candy_type_set:
+                n -= 1
+                type_count += 1
+                if n == 0:
+                    break
+
+            candy_type_set.add(ty)
