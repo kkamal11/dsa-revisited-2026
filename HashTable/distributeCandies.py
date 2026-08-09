@@ -50,6 +50,8 @@ class Solution:
 
             candy_type_set.add(ty)
 
+        return type_count
+
     def distributeCandies(self, candyType: List[int]) -> int:
         candy_type_set = set(candyType)
         return min(len(candyType) // 2, len(candy_type_set))
