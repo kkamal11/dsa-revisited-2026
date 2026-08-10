@@ -18,3 +18,6 @@ class Solution:
                 ans.append(num)
 
         return ans
+
+    def selfDividingNumbers2(self, left: int, right: int) -> List[int]:
+        return [num for num in range(left, right + 1) if self.digits_divide(num)]
