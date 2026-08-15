@@ -9,8 +9,10 @@ class Solution:
         for word in words:
             a += 1
             if word[0].upper() in vowels:
-                ans.append(word + "ma" + "a" * a)
+                transformed_word = word + "ma" + "a" * a
             else:
-                ans.append(word[1:] + word[0] + "ma" + "a" * a)
+                transformed_word = word[1:] + word[0] + "ma" + "a" * a
+
+            ans.append(transformed_word)
 
         return " ".join(ans)
