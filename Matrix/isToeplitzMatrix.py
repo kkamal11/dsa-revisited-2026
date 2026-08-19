@@ -1,5 +1,10 @@
 from typing import List
 
+"""
+The key property of a Toeplitz matrix is:
+matrix[i][j] == matrix[i + 1][j + 1] for all valid i, j.
+"""
+
 
 class Solution:
     def isToeplitzMatrix(self, matrix: List[List[int]]) -> bool:
