@@ -19,3 +19,15 @@ class Solution:
                 insert_idx += 1
 
         return ans
+
+    def sortArrayByParity(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+
+        insert_idx = 0
+
+        for i, num in enumerate(nums):
+            if num % 2 == 0:
+                nums[i], nums[insert_idx] = nums[insert_idx], nums[i]
+                insert_idx += 1
+
+        return nums
