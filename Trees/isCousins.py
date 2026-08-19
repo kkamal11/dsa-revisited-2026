@@ -33,3 +33,33 @@ class Solution:
         print(levels)
 
         return False
+
+
+class Solution:
+    def isCousins(self, root: Optional[TreeNode], x: int, y: int) -> bool:
+        if not root:
+            return False
+
+        q = deque([(root, root)])
+
+        while q:
+            size = len(q)
+            x_parent = None
+            y_parent = None
+            for _ in range(size):
+                node, parent = q.popleft()
+
+                if node.val == x:
+                    x_parent = parent.val
+                if node.val == y:
+                    y_parent = parent.val
+
+                if node.left:
+                    q.append((node.left, node))
+                if node.right:
+                    q.append((node.right, node))
+
+                if x_parent is not None and y_parent is not None:
+                    return x_parent != y_parent
+
+        return False
