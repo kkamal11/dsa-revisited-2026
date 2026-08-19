@@ -40,7 +40,7 @@ class Solution:
         if not root:
             return False
 
-        q = deque([(root, root)])
+        q = deque([(root, -1)])  # (node, parent_val)
 
         while q:
             size = len(q)
@@ -50,14 +50,14 @@ class Solution:
                 node, parent = q.popleft()
 
                 if node.val == x:
-                    x_parent = parent.val
+                    x_parent = parent
                 if node.val == y:
-                    y_parent = parent.val
+                    y_parent = parent
 
                 if node.left:
-                    q.append((node.left, node))
+                    q.append((node.left, node.val))
                 if node.right:
-                    q.append((node.right, node))
+                    q.append((node.right, node.val))
 
                 if x_parent is not None and y_parent is not None:
                     return x_parent != y_parent
