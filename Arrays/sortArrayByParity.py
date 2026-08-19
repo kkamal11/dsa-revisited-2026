@@ -21,8 +21,6 @@ class Solution:
         return ans
 
     def sortArrayByParity(self, nums: List[int]) -> List[int]:
-        n = len(nums)
-
         insert_idx = 0
 
         for i, num in enumerate(nums):
