@@ -23,7 +23,11 @@ class Solution:
 
         return count
 
+    def numberOfArithmeticSlices2(self, nums: List[int]) -> int:
+        pass
+
 
 sol = Solution()
 nums = [1, 2, 3, 4]
-print(sol.numberOfArithmeticSlices(nums))  # Output: 3
+print(sol.numberOfArithmeticSlices(nums))
+print(sol.numberOfArithmeticSlices2(nums))
