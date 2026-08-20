@@ -1,0 +1,20 @@
+func resultArray(nums []int) []int {
+    arr1 := []int{nums[0]}
+    arr2 := []int{nums[1]}
+
+    n := len(nums)
+
+    for i := 2; i < n; i++{
+        if arr1[len(arr1) - 1] > arr2[len(arr2) - 1]{
+            arr1 = append(arr1, nums[i])
+        } else {
+            arr2 = append(arr2, nums[i])
+        }
+    }
+
+    for _, v := range arr2{
+        arr1 = append(arr1, v)
+    }
+
+    return arr1
+}
