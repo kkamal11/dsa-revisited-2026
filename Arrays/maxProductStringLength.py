@@ -31,3 +31,15 @@ class Solution:
                 else:
                     ans = max(ans, len(w1) * len(words[j]))
         return ans
+
+    def maxProduct(self, words: List[str]) -> int:
+        ans = 0
+        n = len(words)
+        sets = [set(word) for word in words]
+
+        for i in range(n):
+            for j in range(i + 1, n):
+                if sets[i].isdisjoint(sets[j]):
+                    ans = max(ans, len(words[i]) * len(words[j]))
+
+        return ans
