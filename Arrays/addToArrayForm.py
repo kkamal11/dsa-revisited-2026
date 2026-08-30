@@ -21,3 +21,23 @@ class Solution:
             ans.append(tmp.pop())
 
         return ans
+
+    def addToArrayForm(self, num: List[int], k: int) -> List[int]:
+
+        ans = []
+        carry = 0
+
+        while k > 0 or carry:
+            r = k % 10
+            last = num.pop() if num else 0
+            digit = last + r + carry
+
+            carry = digit // 10 if digit != 10 else 1
+            digit = digit % 10
+
+            ans.append(digit)
+            k //= 10
+
+        ans.reverse()
+
+        return num + ans if num else ans
