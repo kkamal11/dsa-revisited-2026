@@ -32,7 +32,7 @@ class Solution:
             last = num.pop() if num else 0
             digit = last + r + carry
 
-            carry = digit // 10 if digit != 10 else 1
+            carry = digit // 10
             digit = digit % 10
 
             ans.append(digit)
