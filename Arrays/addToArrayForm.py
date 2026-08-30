@@ -41,3 +41,20 @@ class Solution:
         ans.reverse()
 
         return num + ans if num else ans
+
+    def addToArrayForm(self, num: List[int], k: int) -> List[int]:
+
+        ans = []
+        carry = 0
+
+        while k > 0 or carry:
+            last = num.pop() if num else 0
+            digit = last + (k % 10) + carry
+
+            ans.append(digit % 10)
+            carry = digit // 10
+            k //= 10
+
+        ans.reverse()
+
+        return num + ans if num else ans
