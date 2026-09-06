@@ -1,4 +1,4 @@
-func firstStableIndex(nums []int, k int) int {
+func firstStableIndexII(nums []int, k int) int {
     n := len(nums)
     prefix_min := make([]int, n, n)
     prefix_min[n - 1] = nums[n - 1]
@@ -21,4 +21,20 @@ func firstStableIndex(nums []int, k int) int {
         }
     }
     return -1
+}
+
+func firstStableIndex(nums []int, k int) int {
+	n := len(nums)
+	
+	return -1
+}
+
+
+
+
+func main() {
+	nums := []int{1, 3, 6, 4, 1, 2}
+	k := 2
+	result := firstStableIndex(nums, k)
+	fmt.Println(result) // Output: 3
 }
