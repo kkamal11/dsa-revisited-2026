@@ -46,7 +46,6 @@ class Solution:
         median = nums[n // 2]
 
         for i in range(n):
-            if i != n // 2:
-                moves += abs(median - nums[i])
+            moves += abs(median - nums[i])
 
         return moves
