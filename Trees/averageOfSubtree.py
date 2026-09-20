@@ -48,7 +48,7 @@ class Solution:
         def dfs(node):
             nonlocal count
             if not node:
-                return (0, 0)  # sum, count
+                return (0, 0)
 
             left_sum, left_count = dfs(node.left)
             right_sum, right_count = dfs(node.right)
