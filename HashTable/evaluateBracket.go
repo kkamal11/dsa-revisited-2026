@@ -47,8 +47,7 @@ func evaluate(s string, knowledge [][]string) string {
 	knowledge_map := make(map[string]string, len(knowledge))
 
 	for _, k := range knowledge {
-		key, val := k[0], k[1]
-		knowledge_map[key] = val
+		knowledge_map[k[0]] = k[1]
 	}
 
 	for _, st := range s {
@@ -74,4 +73,41 @@ func evaluate(s string, knowledge [][]string) string {
 	}
 
 	return strings.Join(result, "")
+}
+
+
+func evaluate(s string, knowledge [][]string) string {
+
+    var result strings.Builder
+    var string_key strings.Builder
+    var opened bool
+    knowledge_map := make(map[string]string, len(knowledge))
+
+    for _, k := range knowledge{
+        knowledge_map[k[0]] = k[1]
+    }
+
+    for _, str := range s{
+
+        if str == '('{
+            opened = true
+
+        } else if str == ')'{
+            val, exists := knowledge_map[string_key.String()]
+            if !exists{
+                val = "?"
+            }
+            result.WriteString(val)
+            opened = false
+            string_key.Reset()
+
+        } else if opened {
+            string_key.WriteRune(str)
+
+        } else {
+            result.WriteRune(str)
+        }
+    }
+
+    return result.String()
 }
